@@ -1,0 +1,3 @@
+const ReactMeteorData = {};
+
+export {ReactMeteorData};
