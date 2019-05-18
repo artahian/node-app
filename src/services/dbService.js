@@ -6,7 +6,7 @@ class DbService {
 
   connect(url) {
     return mongodb.MongoClient.connect(url).then((mainDb) => {
-      db.collection = (...args) => mainDb.db('meteor').collection(...args);
+      db.collection = (...args) => mainDb.db('modelence').collection(...args);
     });
   }
 

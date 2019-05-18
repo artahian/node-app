@@ -1,3 +1,0 @@
-const ReactMeteorData = {};
-
-export {ReactMeteorData};

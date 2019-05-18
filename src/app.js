@@ -20,7 +20,7 @@ app.use('/img', express.static(__dirname + '/../../public/img'));
 app.use('/landing', express.static(__dirname + '/../../public/landing'));
 app.use('/documents', express.static(__dirname + '/../../public/documents'));
 
-const dbUrl = 'mongodb://localhost:4001/meteor';
+const dbUrl = 'mongodb://localhost:27017/modelence';
 const appPort = 3000;
 dbService.connect(dbUrl).then(() => app.listen(appPort)).then(() => {
   console.log('Application started');

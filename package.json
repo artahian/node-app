@@ -5,17 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel src -d dist --source-maps inline && webpack --config webpack.config.js && nodejs dist/app.js"
+    "start": "babel src -d dist --source-maps inline && webpack --config webpack.config.js && node dist/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "react": "^15.6.1"
+    "react": "^15.6.1",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
