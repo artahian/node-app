@@ -1,35 +1,42 @@
 {
-  "name": "codefights",
+  "name": "node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel src -d dist --source-maps inline && webpack --config webpack.config.js && node dist/app.js"
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aramshat/node-app.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@babel/preset-react": "^7.0.0",
-    "babel-preset-react": "^6.24.1",
-    "express": "^4.15.4",
-    "mongodb": "^2.2.31",
-    "react": "^15.6.1",
-    "react-dom": "^16.8.6"
+  "bugs": {
+    "url": "https://github.com/aramshat/node-app/issues"
   },
+  "homepage": "https://github.com/aramshat/node-app#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "cache-loader": "^1.0.3",
-    "css-loader": "^0.28.4",
-    "extract-text-webpack-plugin": "^3.0.0",
-    "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
-    "source-map-loader": "^0.2.1",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.5.4"
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-livereload-plugin": "^2.2.0"
+  },
+  "dependencies": {
+    "express": "^4.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }

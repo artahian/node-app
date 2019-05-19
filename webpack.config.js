@@ -1,45 +1,42 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import LiveReloadPlugin from 'webpack-livereload-plugin'
 
-module.exports = {
-  entry: {
-    'bundle.js': './client/client.js',
-    'bundle.css': './client/style.scss'
-  },
-  devtool: 'source-map',
+export default  {
+  entry: './client/index.js',
   output: {
-    path: __dirname + '/dist/client',
-    filename: '[name]'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.scss'],
-    alias: {
-      meteor: __dirname + '/imports/meteor',
-      '/imports': __dirname + '/../imports',
-      client: __dirname + '/../client'
-    }
+    path: path.join(__dirname, 'public'),
+    publicPath: '/',
+    filename: 'bundle.js',
   },
   module: {
     rules: [{
-      test: /\.jsx?$/,
-      use: ['source-map-loader'],
-      enforce: 'pre'
+      test: /\.js$/,
+      use: 'babel-loader',
+      exclude: /node_modules/,
     }, {
-      test: /\.jsx?$/,
-      exclude: /(node_modules|bower_components)/,
-      use: [{
-        loader: 'cache-loader'
-      }, {
-        loader: 'babel-loader',
-        options: {
-          presets: ['es2015', 'react']
-        }
-      }]
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader'],
     }, {
       test: /\.scss$/,
-      use: ExtractTextPlugin.extract(['cache-loader', 'css-loader', 'sass-loader'])
+      use: [{
+        loader: "style-loader"
+      }, {
+        loader: "css-loader", options: {
+          sourceMap: true
+        }
+      }, {
+        loader: "sass-loader", options: {
+          sourceMap: true
+        }
+      }]
     }]
   },
   plugins: [
-    new ExtractTextPlugin('bundle.css')
+    new HtmlWebpackPlugin({
+      template: 'client/index.html'
+    }),
+    new LiveReloadPlugin()
   ]
 };
