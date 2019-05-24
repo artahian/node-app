@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production && babel src -d dist",
     "start": "NODE_ENV=production TZ=UTC node dist/app.js",
-    "start:dev": "npm run build && PORT=3000 TZ=UTC nodemon --exec babel-node src/app.js",
+    "start:dev": "PORT=3000 TZ=UTC nodemon --exec babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
