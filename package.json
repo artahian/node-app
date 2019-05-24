@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "nodemon --exec babel-node index.js",
+    "build": "webpack --mode production && babel src -d dist",
+    "start": "NODE_ENV=production TZ=UTC node dist/app.js",
+    "start:dev": "npm run build && PORT=3000 TZ=UTC nodemon --exec babel-node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/aramshat/node-app#readme",
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.4",
@@ -33,11 +35,14 @@
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.4.1",
     "webpack-livereload-plugin": "^2.2.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "express": "^4.17.0",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6"
   }
 }
