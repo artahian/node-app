@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "files": [
-    "dist/index.js"
+    "./dist/index.js",
+    "./bin/node-app.js",
   ],
   "scripts": {
     "build": "babel --presets @babel/env src -d dist",
