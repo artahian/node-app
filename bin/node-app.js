@@ -61,6 +61,11 @@ switch (script) {
       '@babel/node',
       '@babel/preset-env',
       '@babel/preset-react',
+      'webpack',
+      'webpack-cli',
+      'webpack-dev-middleware',
+      'webpack-dev-server',
+      'webpack-livereload-plugin',
       'babel-loader',
       'babel-preset-env',
       'css-loader',
@@ -69,11 +74,6 @@ switch (script) {
       'nodemon',
       'sass-loader',
       'style-loader',
-      'webpack',
-      'webpack-cli',
-      'webpack-dev-middleware',
-      'webpack-dev-server',
-      'webpack-livereload-plugin',
     ];
     const cmd = dependencies.map(dep => `npm install --save-dev ${dep}`).join(' && ');
     const ch = child_process.spawn(cmd, {
