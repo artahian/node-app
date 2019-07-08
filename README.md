@@ -64,7 +64,7 @@ app.listen(port, () => {
 
 Start your application by running:
 ```bash
-npm start:dev
+npm run start:dev
 ```
 
 For production, use:
