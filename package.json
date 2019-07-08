@@ -1,6 +1,6 @@
 {
   "name": "@artahian/node-app",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/artahian/node-app.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "node-app": "./bin/node-app.js"
   },
