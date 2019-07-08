@@ -1,11 +1,12 @@
 {
   "name": "@artahian/node-app",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "dist/index.js",
   "files": [
     "dist/index.js",
-    "bin/node-app.js"
+    "bin/node-app.js",
+    "webpack.config.js"
   ],
   "scripts": {
     "build": "babel --presets @babel/env src -d dist",
