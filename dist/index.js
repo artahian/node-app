@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-require("@babel/polyfill");
+require("@babel/polyfill/noConflict");
 
 var _path = _interopRequireDefault(require("path"));
 
@@ -24,7 +24,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   var webpackMiddleware = require('webpack-dev-middleware');
 
-  var webpackConfig = require('../webpack.config.js');
+  var webpackConfig = require(_path["default"].join(__dirname, '..', 'webpack.config.js'));
 
   var compiler = webpack(_objectSpread({}, webpackConfig, {
     mode: 'development',
