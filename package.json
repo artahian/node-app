@@ -2,23 +2,27 @@
   "name": "node-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
-    "build": "webpack --mode production && babel src -d dist",
-    "start": "NODE_ENV=production TZ=UTC node dist/app.js",
-    "start:dev": "PORT=3000 TZ=UTC nodemon --exec babel-node src/app.js",
+    "build": "babel --presets @babel/env src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aramshat/node-app.git"
+    "url": "git+https://github.com/artahian/node-app.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/aramshat/node-app/issues"
+  "bin": {
+    "node-app": "./bin/node-app.js"
   },
-  "homepage": "https://github.com/aramshat/node-app#readme",
+  "bugs": {
+    "url": "https://github.com/artahian/node-app/issues"
+  },
+  "homepage": "https://github.com/artahian/node-app#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
@@ -30,6 +34,7 @@
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.31.0",

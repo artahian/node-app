@@ -1,4 +1,3 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
@@ -6,15 +5,22 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
 module.exports = {
   entry: './src/client/index.js',
   output: {
-    path: path.join(__dirname, 'public'),
     publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
     rules: [{
       test: /\.(js|jsx)$/,
-      use: 'babel-loader',
       exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            '@babel/preset-env',
+            '@babel/react'
+          ]
+        }
+      }
     }, {
       test: /\.css$/,
       use: ['style-loader', 'css-loader'],
@@ -35,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/client/index.html'
+      template: './src/client/index.html'
     }),
     new LiveReloadPlugin()
   ]
