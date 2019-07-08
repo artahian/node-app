@@ -23,12 +23,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-  res.sendFile('dist/client/index.html', { root: '.' });
-});
-
 app.get('/bundle.js', function (req, res) {
   res.sendFile('dist/client/bundle.js', { root: '.' });
 });
 
-export default app;
+function renderHome(req, res) {
+  res.sendFile('dist/client/index.html', { root: '.' });
+}
+
+export { app, renderHome };

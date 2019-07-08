@@ -40,17 +40,19 @@ Structure your project in the following way:
  - public
    - ...some static assets that are publicly accessible, like images...
    
-**index.html** will be served on the root URL by default along with the bundled **index.js** with all of its dependencies,
+**node-app** exports a `renderHome` express handler that serves your **index.html** with the bundled **index.js** with all of its dependencies,
 which will usually contain your main React app.
    
 In your `src/server/app.js`, import the express app from **node-app** and start the server. For example:
 ```js
 import express from 'express'; // Note that you don't have to install 'express' yourself, it comes with this package
 
-import app from '@artahian/node-app';
+import { app, renderHome } from '@artahian/node-app';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get('/', renderHome);
 
 const port = process.env.PORT || 3000;
 

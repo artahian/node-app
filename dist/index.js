@@ -3,7 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.renderHome = renderHome;
+exports.app = void 0;
 
 require("@babel/polyfill/noConflict");
 
@@ -18,6 +19,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var app = (0, _express["default"])();
+exports.app = app;
 
 if (process.env.NODE_ENV !== 'production') {
   var webpack = require('webpack');
@@ -38,15 +40,14 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.use(_express["default"]["static"]('public'));
-app.get('/', function (req, res) {
-  res.sendFile('dist/client/index.html', {
-    root: '.'
-  });
-});
 app.get('/bundle.js', function (req, res) {
   res.sendFile('dist/client/bundle.js', {
     root: '.'
   });
 });
-var _default = app;
-exports["default"] = _default;
+
+function renderHome(req, res) {
+  res.sendFile('dist/client/index.html', {
+    root: '.'
+  });
+}
