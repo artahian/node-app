@@ -1,6 +1,4 @@
 .cache-loader/*
 .mongodb
-dist/*
 node_modules/*
-public/*
 npm-debug.log
