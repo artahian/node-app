@@ -1,11 +1,11 @@
 {
   "name": "@artahian/node-app",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.js",
   "files": [
-    "./dist/index.js",
-    "./bin/node-app.js"
+    "dist/index.js",
+    "bin/node-app.js"
   ],
   "scripts": {
     "build": "babel --presets @babel/env src -d dist",
