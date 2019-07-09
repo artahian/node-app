@@ -12,6 +12,9 @@ const distServerPath = path.join(distPath, 'server');
 const nodeModulesPath = path.join(process.cwd(), 'node_modules');
 const nodeModulesBinPath = path.join(nodeModulesPath, '.bin');
 
+const babelPresets = ['@babel/env', '@babel/preset-react'];
+const babelPlugins = ['@babel/plugin-proposal-class-properties'];
+
 switch (script) {
   case 'start:dev': {
     console.log('Starting dev server...');
@@ -19,7 +22,9 @@ switch (script) {
       '--exec',
       path.join(nodeModulesBinPath, 'babel-node'),
       '--presets',
-      '@babel/env,@babel/preset-react',
+      babelPresets.join(','),
+      '--plugins',
+      babelPlugins.join(','),
       path.join(srcServerPath, 'app.js')
     ]);
     ch.stdout.pipe(process.stdout);
@@ -34,7 +39,7 @@ switch (script) {
     const cleanupCmd = `rm -rf ${distPath}`;
     const webpackCmd = `${path.join(nodeModulesBinPath, 'webpack')} --mode production --config='${configPath}' --output-path='${outputPath}'`;
 
-    const babelCmd = `${path.join(nodeModulesBinPath, 'babel')} --presets @babel/env,@babel/preset-react ${srcServerPath} -d ${distServerPath}`;
+    const babelCmd = `${path.join(nodeModulesBinPath, 'babel')} --presets ${babelPresets.join(',')} --plugins ${babelPlugins.join(',')} ${srcServerPath} -d ${distServerPath}`;
     const ch = child_process.spawn(`${cleanupCmd} && ${webpackCmd} && ${babelCmd}`, {
       shell: true
     });
@@ -61,6 +66,7 @@ switch (script) {
       '@babel/node',
       '@babel/preset-env',
       '@babel/preset-react',
+      '@babel/plugin-proposal-class-properties',
       'webpack',
       'webpack-cli',
       'webpack-dev-middleware',
